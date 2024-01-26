@@ -40,9 +40,10 @@ const Saat = ({ saatData, setseciliSaat, seciliTarih, seciliPersonelId }) => {
 
   useEffect(() => {
     if (seciliPersonelId && seciliTarih) {
-      getDoluSaatler(seciliPersonelId, seciliTarih).map((item, index) => {
-        //buraya datayı döndür eşleşenlere dolu true ekle
-      });
+      getDoluSaatler(seciliPersonelId, seciliTarih) ||
+        [].map((item, index) => {
+          //buraya datayı döndür eşleşenlere dolu true ekle
+        });
     }
   }, [data]);
 
@@ -61,10 +62,10 @@ const Saat = ({ saatData, setseciliSaat, seciliTarih, seciliPersonelId }) => {
   };
 
   return (
-    <>
-      Saat
-      <div className=" grid grid-cols-6 gap-4 ">{data?.map(renderItem)}</div>
-    </>
+    <div>
+      <div className="font-bold pb-2">Randevu Saati</div>
+      <div className=" grid grid-cols-3 gap-4 ">{data?.map(renderItem)}</div>
+    </div>
   );
 };
 export default Saat;
@@ -73,8 +74,8 @@ const Item = ({ item, seciliMi, handleOnPress }) => {
   return (
     <div
       onClick={() => handleOnPress(item.saat)}
-      className={`p-2 border border-gray-100 select-none cursor-pointer text-center
-      ${seciliMi ? "bg-green-400" : "bg-white"}
+      className={`p-3 border select-none border-gray-400 rounded  cursor-pointer text-center
+      ${seciliMi ? "bg-cyan-600 border-cyan-600 text-white" : "bg-white"}
       `}
     >
       {item.saat}

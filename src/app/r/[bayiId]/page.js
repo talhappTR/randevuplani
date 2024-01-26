@@ -17,28 +17,32 @@ const Bayi = ({ params }) => {
   const [saatData, setsaatData] = useState();
 
   return (
-    <>
-      <Firma bayiId={params.bayiId} />
-      <Personel
-        bayiId={params.bayiId}
-        setseciliPersonelId={setseciliPersonelId}
-        sethizmetData={sethizmetData}
-        setsaatData={setsaatData}
-      />
-      <Hizmet
-        hizmetData={hizmetData}
-        setseciliHizmetlerData={setseciliHizmetlerData}
-      />
+    <div className=" md:bg-gray-100  w-screen md:p-5 h-screen">
+      <div className=" bg-white md:border md:p-10 space-y-7 md:shadow-md p-4 container sm:mx-auto max-w-[700px]">
+        <Firma bayiId={params.bayiId} />
+        <Personel
+          bayiId={params.bayiId}
+          setseciliPersonelId={setseciliPersonelId}
+          sethizmetData={sethizmetData}
+          setsaatData={setsaatData}
+        />
+        <Hizmet
+          hizmetData={hizmetData}
+          setseciliHizmetlerData={setseciliHizmetlerData}
+        />
 
-      <Tarih bayiId={params.bayiId} setseciliTarih={setseciliTarih} />
+        <Tarih bayiId={params.bayiId} setseciliTarih={setseciliTarih} />
 
-      <Saat
-        saatData={saatData}
-        setseciliSaat={setseciliSaat}
-        seciliTarih={seciliTarih}
-        seciliPersonelId={seciliPersonelId}
-      />
-    </>
+        <Saat
+          saatData={saatData}
+          setseciliSaat={setseciliSaat}
+          seciliTarih={seciliTarih}
+          seciliPersonelId={seciliPersonelId}
+        />
+
+        <div className=" h-5" />
+      </div>
+    </div>
   );
 };
 

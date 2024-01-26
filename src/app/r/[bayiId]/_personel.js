@@ -34,7 +34,7 @@ const Personel = ({
   }, [seciliId]);
 
   const handleOnPress = (id) => {
-    setseciliId((_id) => (_id == id ? id : id));
+    setseciliId((_id) => (_id == id ? 0 : id));
   };
 
   const renderItem = (item, index) => {
@@ -48,7 +48,10 @@ const Personel = ({
   };
 
   return (
-    <div className="bg-yellow-800 p-4">Personel {data?.map(renderItem)}</div>
+    <div className="">
+      <div className="font-bold pb-2">Personeller</div>
+      {data?.map(renderItem)}
+    </div>
   );
 };
 
@@ -58,11 +61,15 @@ const Item = ({ item, seciliMi, handleOnPress }) => {
   return (
     <div
       onClick={() => handleOnPress(item.id)}
-      className={`p-2 border border-gray-100 select-none cursor-pointer
-      ${seciliMi ? "bg-green-400" : "bg-white"}
+      className={`p-2 border-[3px] relative  place-items-center overflow-hidden  bg-white border-gray-400  select-none cursor-pointer h-64 w-48 rounded-2xl
+      ${seciliMi ? "border-blue-400 " : "border-white-400 "}
       `}
     >
-      {item.ad}
+      <img src="/pfoto.png" alt="React Image" className="w-36  self-center" />
+
+      <div className="p-2 absolute -ml-2 bottom-0   bg-[#3434348c] w-full h-16">
+        <div className="text-white">{item.ad}</div>
+      </div>
     </div>
   );
 };

@@ -4,5 +4,5 @@ export const metadata = {
 };
 
 export default function RLayout({ children }) {
-  return <div className={"h-screen p-4"}>{children}</div>;
+  return <div className={""}>{children}</div>;
 }

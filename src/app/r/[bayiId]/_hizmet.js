@@ -36,12 +36,12 @@ const Hizmet = ({ hizmetData, setseciliHizmetlerData }) => {
   };
 
   return (
-    <>
-      Hizmet
+    <div>
+      <div className="font-bold pb-2">Hizmetler</div>
       <div className=" grid grid-cols-2 gap-4 ">
         {hizmetData?.map(renderItem)}
       </div>
-    </>
+    </div>
   );
 };
 export default Hizmet;
@@ -50,11 +50,25 @@ const Item = ({ item, seciliMi, handleOnPress }) => {
   return (
     <div
       onClick={() => handleOnPress(item.id)}
-      className={`p-2 border border-gray-100 select-none cursor-pointer
-      ${seciliMi ? "bg-green-400" : "bg-white"}
+      className={`p-2 border select-none font-medium border-gray-400 rounded  cursor-pointer
+      ${seciliMi ? "bg-cyan-600 border-cyan-600 text-white" : "bg-white"}
       `}
     >
       {item.baslik}
+      <div
+        className={` font-light  
+      ${seciliMi ? "text-gray-100 " : "text-gray-600"}
+      `}
+      >
+        {item.aciklama}
+      </div>
+      <div
+        className={` 
+      ${seciliMi ? "text-gray-100 " : "text-gray-600"}
+      `}
+      >
+        ₺{item.fiyat}
+      </div>
     </div>
   );
 };
